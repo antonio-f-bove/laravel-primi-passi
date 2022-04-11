@@ -14,5 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', [
+        'who' => 'World',
+        'nav_links' => [
+            'teachers' => '/teachers'
+        ]
+    ]);
+});
+
+// sub-route from nav in homepage
+Route::get('/teachers', function () {
+    return view('teachers', [
+        'teachers' => [
+            'Alessio',
+            'Gianluca',
+            'Massimo'
+        ]
+        ]);
 });
